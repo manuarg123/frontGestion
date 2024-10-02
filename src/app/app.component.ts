@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,15 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'frontGestion';
+  showNavbar: boolean = false;
+
   constructor(private router: Router) { }
+
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.showNavbar = !this.router.url.includes('/login');
+      }
+    });
+  }
 }

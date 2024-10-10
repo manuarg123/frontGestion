@@ -1,18 +1,23 @@
 <div class="container">
     <div class="row" style="margin-top: 50px;">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <h1> Escritorio de la app</h1>
-            <h6> Contendra los siguientes widgets que traeran diversos datos</h6>
-            <ul>
-                <li>Proximas consultas</li>
-                <li>Ultimas Consultas</li>
-                <li>Pagos pendientes</li>
-                <li>Ultimos pagos</li>
-                <li>Ficha con grande de proxima consulta</li>
-                <li>Ultimas historias clínicas</li>
-            </ul>
+        <div class="col-12">
+            <app-next-consultation-widget [nextConsultation]="nextConsultation"></app-next-consultation-widget>
         </div>
-        <div class="col-4"></div>
+    </div>
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-6">
+            <app-next-consultations-widget [nextConsultations]="nextConsultations"></app-next-consultations-widget>
+        </div>
+        <div class="col-6">
+            <app-last-consultations-widget [lastConsultations]="lastConsultations"></app-last-consultations-widget>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-6">
+            <app-pending-payouts-widget [pendingPayouts]="pendingPayouts"></app-pending-payouts-widget>
+        </div>
+        <div class="col-6">
+            <app-complete-payouts-widget [completePayouts]="completePayouts"></app-complete-payouts-widget>
+        </div>
     </div>
 </div>

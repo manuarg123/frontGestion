@@ -1,0 +1,31 @@
+<div class="card text-center" style="height: 100%;">
+    <div class="card-header" style="font-size: x-large;">
+        Próximas Consultas
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-responsive table-sm small-table-width table-striped table-hover mb-0" style="width: 100%; table-layout: fixed;">
+            <thead class="table-light">
+                <tr>
+                    <th class="text-center">Paciente</th>
+                    <th class="text-center">Profesional</th>
+                    <th class="text-center">Tipo de consulta</th>
+                    <th class="text-center">Fecha</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let consultation of nextConsultations">
+                    <td class="text-center" title="{{ consultation.patient }}">{{ consultation.patient }}</td>
+                    <td class="text-center" title="{{ consultation.professional }}">{{ consultation.professional }}</td>
+                    <td class="text-center" title="{{ consultation.type }}">{{ consultation.type }}</td>
+                    <td class="text-center" title="{{ consultation.date }}">{{ consultation.date }}</td>
+                    <td class="text-center"><button class="btn btn-info btn-sm">Accion</button></td>
+        
+                </tr>
+                <tr *ngIf="nextConsultations.length === 0">
+                    <td colspan="2" class="text-center">No hay próximas consultas.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

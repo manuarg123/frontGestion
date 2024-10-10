@@ -1,0 +1,47 @@
+<div class="card text-center mx-auto" style="max-width: 500px; font-size: smaller;">
+    <div class="card-header" style="font-size: large;">
+      Próxima consulta
+    </div>
+    <div class="card-body p-2">
+      <table class="table table-bordered text-start mb-0" *ngIf="nextConsultation && nextConsultation.length > 0">
+        <tbody *ngFor="let consultation of nextConsultation">
+          <tr>
+            <th scope="row" class="w-50">Paciente</th>
+            <td id="paciente">{{ consultation.patient }}</td> 
+          </tr>
+          <tr>
+            <th scope="row">Profesional</th>
+            <td id="profesional">{{ consultation.professional }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Especialidad</th>
+            <td id="especialidad">{{ consultation.speciality }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Tipo Consulta</th>
+            <td id="tipo_consulta">{{ consultation.type }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Motivo de Consulta</th>
+            <td id="motivo" title="{{ consultation.motiveConsultation }}">{{ consultation.motiveConsultation }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Obra Social</th>
+            <td id="obra">{{ consultation.prePaid }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Lugar</th>
+            <td id="lugar">[Lugar]</td>
+          </tr>
+          <tr>
+            <th scope="row">Fecha</th>
+            <td id="fecha">{{ consultation.date }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="!nextConsultation || nextConsultation.length === 0">No hay próximas consultas.</p>
+    </div>
+    <div class="card-footer text-body-secondary">
+        En {{ remainingTime }}    
+    </div>
+  </div>

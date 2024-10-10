@@ -1,0 +1,35 @@
+<div class="card text-center" style="height: 100%;">
+    <div class="card-header" style="font-size: x-large;">
+        Últimos pagos recibidos
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-responsive table-sm small-table-width table-striped table-hover mb-0" style="width: 100%; table-layout: fixed;">
+            <thead class="table-light">
+                <tr>
+                    <th class="text-center">Fecha</th>
+                    <th class="text-center">Paciente</th>
+                    <th class="text-center">Profesional</th>
+                    <th class="text-center">Tipo</th>
+                    <th class="text-center">Total</th>
+                    <th class="text-center">Monto restante</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let payout of completePayouts">
+                    <td class="text-center" title="{{ payout.createdDate }}">{{ payout.createdDate }}</td>
+                    <td class="text-center" title="{{ payout.patient }}">{{ payout.patient }}</td>
+                    <td class="text-center" title="{{ payout.professional }}">{{ payout.professional }}</td>
+                    <td class="text-center" title="{{ payout.type }}">{{ payout.type }}</td>
+                    <td class="text-center" title="{{ payout.totalAmount }}">{{ payout.totalAmount }}</td>
+                    <td class="text-center" title="{{ payout.restAmount }}">{{ payout.restAmount }}</td>
+                    <td class="text-center"><button class="btn btn-info btn-sm">Accion</button></td>
+        
+                </tr>
+                <tr *ngIf="completePayouts.length === 0">
+                    <td colspan="2" class="text-center">No hay pagos pendientes.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
